@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'jquery-rails'
+gem 'jquery-slick-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -14,9 +16,11 @@ gem 'pg'
 gem 'puma'
 gem 'rack-cors'
 gem 'rails'
-gem 'sass-rails'
 gem 'tzinfo-data'
 
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'awesome_print'
