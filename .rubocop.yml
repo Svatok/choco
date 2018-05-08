@@ -5,7 +5,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
-  TargetRubyVersion: 2.3.5
+  TargetRubyVersion: 2.3
 
 Rails:
   Enabled: true

@@ -10,9 +10,9 @@
 
   <body>
     <div id="wrapper" style="padding-top: 0px;">
-      <%= render 'layouts/header' %>
+      <%= cell Pro::Cell::Header %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <%= cell Pro::Cell::Footer %>
     </div>
   </body>
 </html>
