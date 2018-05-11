@@ -51,6 +51,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    ancestry (3.0.2)
+      activerecord (>= 3.2.0)
     arel (9.0.0)
     autoprefixer-rails (8.4.1)
       execjs
@@ -315,6 +317,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry
   awesome_print
   bootstrap-sass
   bullet

@@ -22,12 +22,14 @@ gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'font-awesome-rails'
 
-gem "trailblazer"
-gem "trailblazer-rails"
-gem "trailblazer-cells"
-gem "cells-erb"
-gem "cells-rails"
-gem "dry-validation"
+gem 'trailblazer'
+gem 'trailblazer-rails'
+gem 'trailblazer-cells'
+gem 'cells-erb'
+gem 'cells-rails'
+gem 'dry-validation'
+
+gem 'ancestry'
 
 group :development, :test do
   gem 'awesome_print'

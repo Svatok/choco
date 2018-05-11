@@ -1,5 +1,7 @@
 class LandingPagesController < ApplicationController
   def show
-    render html: cell(LandingPage::Cell::Show, nil, layout: Pro::Cell::Application)
+    run LandingPage::Show
+
+    render html: cell(LandingPage::Cell::Show, result['model'], layout: Pro::Cell::Application)
   end
 end
