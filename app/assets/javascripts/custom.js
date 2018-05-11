@@ -115,7 +115,7 @@ $(function($) {
 	// 	  ]
 	// 	});
 	// }
-	// 
+	//
 	// /*======== Gift Slider ========*/
 	// if ($(".sidebar .gift-box").length) {
 	// 	$('.gift-slider').slick({
@@ -123,20 +123,20 @@ $(function($) {
 	// 		arrows:false,
 	// 	});
 	// }
-	
+
 	bannerHeight();  //Banner Height
 	subMenuMobile(); //Mobile Menu
 	headerHeight(); //Sticky Header
 	rangeSlider(); // Price Range Selector
 	chocoCategories(); // Show Chocolates sub Categories
     toolTip(); // Show Tooltip
-	
+
 	// CheckBox/Radio Js
 	$('.label_check, .label_radio').on("click", function() {
 		setupLabel();
 	});
 	setupLabel();
-	
+
 	// Counter JS
 	// if ($(".counter").length) {
 	// 	$('.counter').counterUp({
@@ -152,7 +152,7 @@ $(function($) {
 	$(".cart-items .cart-icon").on("click", function() {
 		$(".cart-items .cart-table").slideToggle();
 	});
-	
+
 	//Copyright Year
 	var currentYear = (new Date).getFullYear();
 	$("#footer .copyright .year").text(currentYear);
@@ -168,11 +168,10 @@ $(window).on('resize', function(){
 //Fixed nav bar on top
 $(window).on('scroll', function(){
 	var header = $("#header");
-	var HeadTopHeight = $(".top-bar").outerHeight();
 	if ( $(window).width() > 767 )
 	{
 		if ($(".navbar").offset().top > 40) {
-			header.addClass("sticky-header").css('top','-'+ HeadTopHeight + 'px');
+			header.addClass("sticky-header").css('top',0);
 		} else {
 			header.removeClass("sticky-header").css('top',0);;
 		}
@@ -180,8 +179,8 @@ $(window).on('scroll', function(){
 });
 
 function toolTip(){
-	$('[data-toggle="tooltip"]').tooltip(); 
-} 
+	$('[data-toggle="tooltip"]').tooltip();
+}
 
  // Show Chocolates sub Categories
 function chocoCategories(){
@@ -213,12 +212,12 @@ function rangeSlider(){
 		noUiSlider.create(keypressSlider, {
 			start: [ 20, 80 ],
 			connect: true,
-			tooltips: [ 
-				wNumb({ 
+			tooltips: [
+				wNumb({
 					decimals: 1,
 					postfix: ' ($)'
 				}),
-				wNumb({ 
+				wNumb({
 					decimals:1,
 					postfix: ' ($)'
 				})
@@ -229,11 +228,11 @@ function rangeSlider(){
 			},
 			format: wNumb({
 				decimals: 1,
-				
+
 			}),
-			
+
 		});
-		
+
 		keypressSlider.noUiSlider.on('update', function( values, handle ) {
 			inputs[handle].value = values[handle];
 		});
@@ -246,62 +245,62 @@ function rangeSlider(){
 
 		// Listen to keydown events on the input field.
 		inputs.forEach(function(input, handle) {
-		
+
 			input.addEventListener('change', function(){
 				setSliderHandle(handle, this.value);
 			});
-		
+
 			input.addEventListener('keydown', function( e ) {
-		
+
 				var values = keypressSlider.noUiSlider.get();
 				var value = Number(values[handle]);
-		
+
 				// [[handle0_down, handle0_up], [handle1_down, handle1_up]]
 				var steps = keypressSlider.noUiSlider.steps();
-		
+
 				// [down, up]
 				var step = steps[handle];
-		
+
 				var position;
-		
+
 				// 13 is enter,
 				// 38 is key up,
 				// 40 is key down.
 				switch ( e.which ) {
-		
+
 					case 13:
 						setSliderHandle(handle, this.value);
 						break;
-		
+
 					case 38:
-		
+
 						// Get step to go increase slider value (up)
 						position = step[1];
-		
+
 						// false = no step is set
 						if ( position === false ) {
 							position = 1;
 						}
-		
+
 						// null = edge of slider
 						if ( position !== null ) {
 							setSliderHandle(handle, value + position);
 						}
-		
+
 						break;
-		
+
 					case 40:
-		
+
 						position = step[0];
-		
+
 						if ( position === false ) {
 							position = 1;
 						}
-		
+
 						if ( position !== null ) {
 							setSliderHandle(handle, value - position);
 						}
-		
+
 						break;
 				}
 			});
@@ -338,9 +337,9 @@ function subMenuMobile(){
 function headerHeight(){
 	var wrapper = $("#wrapper");
 	var header_height = $("#header").outerHeight();
-	
+
 	wrapper.css("padding-top","0px");
-	
+
 	if($(".inner-page").length){
 		if ( $(window).width() > 767 ){
 			wrapper.css("padding-top", header_height + "px");
@@ -355,18 +354,18 @@ function headerHeight(){
 // Checkbox/Radio Style
 function setupLabel() {
 	if ($('.label_check input').length) {
-		$('.label_check').each(function(){ 
+		$('.label_check').each(function(){
 			$(this).removeClass('c_on');
 		});
-		$('.label_check input:checked').each(function(){ 
+		$('.label_check input:checked').each(function(){
 			$(this).parent('label').addClass('c_on');
-		});                
+		});
 	};
 	if ($('.label_radio input').length) {
-		$('.label_radio').each(function(){ 
+		$('.label_radio').each(function(){
 			$(this).removeClass('r_on');
 		});
-		$('.label_radio input:checked').each(function(){ 
+		$('.label_radio input:checked').each(function(){
 			$(this).parent('label').addClass('r_on');
 		});
 	};
@@ -374,7 +373,7 @@ function setupLabel() {
 
 // Placeholder for IE
 $(function () {
-	if(!$.support.placeholder) { 
+	if(!$.support.placeholder) {
 
 		var active = document.activeElement;
 		$(':text, textarea').focus(function () {
@@ -391,7 +390,7 @@ $(function () {
 		$('form').submit(function () {
 			$(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
 		});
-	}  
+	}
 });
 
 var workFilter = $('.creations-item li');
@@ -447,7 +446,7 @@ $(".quck-menuIcon").on('click',function(){
 		$(".quck-linkRight").animate({right:"0px"},500);
 		//$(".quck-menuOverlay").fadeIn(500);
 		$(".quck-menuIcon").addClass("open");
-		
+
 		$(this).children(".fa").removeClass("fa-bars").addClass("fa-angle-right");
 	}
 });

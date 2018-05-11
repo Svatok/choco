@@ -1,7 +1,7 @@
-class LandingPagesController < ApplicationController
+class LandingPagesController < BaseController
   def show
     run LandingPage::Show
 
-    render html: cell(LandingPage::Cell::Show, result['model'], layout: Pro::Cell::Application)
+    render LandingPage::Cell::Show, result['model']
   end
 end

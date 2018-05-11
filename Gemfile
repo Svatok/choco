@@ -30,6 +30,13 @@ gem 'cells-rails'
 gem 'dry-validation'
 
 gem 'ancestry'
+gem 'carrierwave'
+
+# Admin area
+gem 'activeadmin'
+gem 'activeadmin_addons'
+gem 'active_admin-sortable_tree'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'awesome_print'
@@ -53,4 +60,5 @@ end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end

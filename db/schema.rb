@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_081445) do
+ActiveRecord::Schema.define(version: 2018_05_12_214653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "header_links", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.integer "rank", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_header_links_on_ancestry"
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "number"
+    t.integer "rank", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "product_categories", force: :cascade do |t|
     t.string "name"
@@ -39,6 +56,20 @@ ActiveRecord::Schema.define(version: 2018_05_11_081445) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
+  end
+
+  create_table "site_logos", force: :cascade do |t|
+    t.string "logo"
+    t.boolean "current", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "products", "product_categories"

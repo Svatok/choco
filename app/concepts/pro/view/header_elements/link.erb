@@ -1,0 +1,19 @@
+<% if model.has_children? %>
+  <li class="has-child">
+    <%= header_link %>
+    <span class="mobile-arrow">+</span>
+    <ul class="dropdown-menu">
+      <li>
+        <ul>
+          <% sublinks.each do |sublink| %>
+            <li>
+              <%= link_to sublink.title, sublink.url %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </li>
+<% else %>
+  <li><%= header_link %></li>
+<% end %>

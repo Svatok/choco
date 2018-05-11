@@ -1,5 +1,5 @@
 module LandingPage::Cell
-  class Show < Trailblazer::Cell
+  class Show < Pro::Cell::Layout
     property :featured_products
     property :best_sellers
   end

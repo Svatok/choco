@@ -1,144 +1,21 @@
 <header id="header">
-  <div class="top-bar">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-6">
-                  <div class="header-top-left">
-                    <a href="#">Questions?</a>
-                    <span>Call us at +1800-621-3294 (M-F 9AM-5PM EST)</span>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="header-top-right">
-                      <ul class="list-inline">
-                            <li class="searchBox">
-                              <a href="javascript:void(0);" class="search-boxSmall"><i class="fa fa-search"></i>Search</a>
-                                <div class="search-box">
-                                    <div class="icon"><i class="icon icon-search"></i></div>
-                                    <div class="search-view">
-                                        <input value="Enter a search term …" placeholder="Enter a search term …" class="hasPlaceholder" type="text">
-                                        <button type="submit" value=""><i class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="http://115.160.244.10:8084/themeforest/chocolate/my-wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i>My Wishlist</a></li>
-                            <li><a href="http://115.160.244.10:8084/themeforest/chocolate/login.html"><i class="fa fa-user" aria-hidden="true"></i>Login/Register</a></li>
-                            <li class="cart-items">
-                              <a href="javascript:void(0);" class="cart-icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span class="badge">2</span></a>
-                              <div class="cart-table">
-                                  <table class="table">
-                                      <tbody>
-                                          <tr>
-                                              <td>
-                                                  <img src="Chocalate_files/cart-img1.jpg" alt="">
-                                                </td>
-                                                <td>
-                                                  <p class="name">Antique Gold </p>
-                                                    <div class="price">$ 449.0</div>
-                                                    <div class="qty"><input value="1" type="text">
-                                                      <a href="#" class="btn btn-info">Update</a>
-                                                    </div>
-                                                </td>
-                                                <td class="options text-right">
-                                                  <span><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
-                                                    <span><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                              <td>
-                                                  <img src="Chocalate_files/cart-img2.jpg" alt="">
-                                                </td>
-                                                <td>
-                                                  <p class="name">Antique Gold </p>
-                                                    <div class="price">$ 449.0</div>
-                                                    <div class="qty"><input value="1" type="text">
-                                                      <a href="#" class="btn btn-info">Update</a>
-                                                    </div>
-                                                </td>
-                                                <td class="options text-right">
-                                                  <span><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
-                                                    <span><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="total">
-                                      <label>TOTAL:</label>
-                                        <span class="price">$ 898.0</span>
-                                    </div>
-                                    <div class="checkout">
-                                      <a href="http://115.160.244.10:8084/themeforest/chocolate/checkout.html" class="btn btn-info btn-block">Checkout</a>
-                <a href="http://115.160.244.10:8084/themeforest/chocolate/cart.html" class="btn btn-primary btn-block">View cart</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <%= cell Pro::Cell::HeaderElements::TopBar %>
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= logo %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <%= cell Pro::Cell::HeaderElements::Link, collection: header_links %>
+        </ul>
+      </div>
     </div>
-    <div class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://115.160.244.10:8084/themeforest/chocolate/index.html"><img src="Chocalate_files/logo.png" alt="Logo"></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/search-page.html">Chocolate<span>Combos</span></a></li>
-                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/search-page.html">Luxury<span>Chocolates</span></a></li>
-                    <li class="has-child"><a href="http://115.160.244.10:8084/themeforest/chocolate/search-page.html">Sugar Free<span>Chocolates</span></a>
-                      <span class="mobile-arrow">+</span><ul class="dropdown-menu">
-                          <li>
-                              <ul>
-                                  <li><a href="#">Father's Day</a></li>
-                                    <li><a href="#">Christmas Collection</a></li>
-                                    <li><a href="#">Birthday Collection</a></li>
-                                    <li><a href="#">New Year Collection</a></li>
-                                    <li><a href="#">Valentine day Chocolates</a></li>
-                                    <li><a href="#">Friendship Day Chocolates</a></li>
-                                </ul>
-                                <ul class="hidden-xs">
-                                  <li class="occasion-offer">
-                                      <label>Christmas Special Chocolate</label>
-                                      <img src="Chocalate_files/img18.jpg" alt="">
-                                        <a href="#" class="send-gift">Send Christmas Chocolate Gift</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-child last"><a href="http://115.160.244.10:8084/themeforest/chocolate/search-page.html">All<span>Pages</span></a>
-                      <span class="mobile-arrow">+</span><ul class="dropdown-menu">
-                          <li>
-                              <ul>
-                                  <li><a href="http://115.160.244.10:8084/themeforest/chocolate/blog-left-sidebar.html">1 Column Blog Left Sidebar</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/blog-right-sidebar.html">1 Column Blog Right Sidebar</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/blog-details-left-sidebar.html">1 Column Blog Details Left Sidebar</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/blog-details-right-sidebar.html">1 Column Blog Details Right Sidebar</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/404-page.html">404 Page Note Found</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/shipping-info.html">Shipping Information</a></li>
-                                </ul>
-                                <ul>
-                                  <li><a href="http://115.160.244.10:8084/themeforest/chocolate/about-us.html">About Us</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/contact-us.html">Contact Us</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/faq.html">FAQ’s</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/my-dashboard.html">My Dashboard</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/my-wishlist.html">My Wishlist</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/index.html">Home Version 1</a></li>
-                                    <li><a href="http://115.160.244.10:8084/themeforest/chocolate/index2.html">Home Version 2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  </div>
 </header>
