@@ -1,10 +1,15 @@
 class LandingPage::Show < Trailblazer::Operation
   step :model!
+  step :banners!
   step :featured_products!
   step :best_sellers!
 
   def model!(options, **)
     options['model'] = OpenStruct.new
+  end
+
+  def banners!(model:, **)
+    model.banners = Banner.current
   end
 
   def featured_products!(model:, **)
