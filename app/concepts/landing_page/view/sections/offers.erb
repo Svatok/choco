@@ -1,58 +1,28 @@
 <section class="offers section-block">
   <div class="container">
     <div class="heading">
-      <span>FREE STANDARD SHIPPING ON ORDERS OVER $49</span>
+      <span><%= title %></span>
     </div>
     <div class="offers-slider">
-      <div class="col-md-4">
-        <div class="offer-box">
-          <img src="Chocalate_files/img9.jpg" alt="">
-          <div class="hover-block">
-            <h3>Corporate Chocolate Gifts</h3>
+      <% offers.each do |offer| %>
+        <div class="col-md-4">
+          <div class="offer-box">
+            <%= image_tag offer.image.url%>
+            <div class="hover-block">
+              <h3><%= offer.title %></h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="offer-box">
-          <img src="Chocalate_files/img12.jpg" alt="">
-          <div class="hover-block">
-            <h3>Chocolate Wedding Favors</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="offer-box">
-          <img src="Chocalate_files/img11.jpg" alt="">
-          <div class="hover-block">
-            <h3>Chocolate Party Favors</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="offer-box">
-          <img src="Chocalate_files/img10.jpg" alt="">
-          <div class="hover-block">
-            <h3>Birthday With Chocolate</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="offer-box">
-          <img src="Chocalate_files/img13.jpg" alt="">
-          <div class="hover-block">
-            <h3>Sugar Free Chocolate</h3>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
     <div class="special-offer">
-      <img src="Chocalate_files/img14.jpg" alt="" class="img-responsive">
+      <%= image_tag special_offer.image.url, class: 'img-responsive'%>
       <div class="offer-detail">
         <div class="row">
           <div class="col-md-4">
-            <h2>Looking for a Special Gift</h2>
-            <p>THE SEASON’S MUST-HAVE GIFTS FOR EVERYONE AND EVERY OCCASION</p>
-            <a href="#" class="btn btn-info">SHOP NOW</a>
+            <h2><%= special_offer.title %></h2>
+            <p><%= special_offer.short_description %></p>
+            <%= buy_now_link %>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
-<%= cell LandingPage::Cell::Sections::Banner, banners %>
+<%= cell(LandingPage::Cell::Sections::Banner, banners) %>
 <div id="content">
-  <%= cell LandingPage::Cell::Sections::Offers %>
-  <%= cell LandingPage::Cell::Sections::UpcomingOffers %>
-  <%= cell LandingPage::Cell::Sections::FeatureProducts, featured_products %>
-  <%= cell LandingPage::Cell::Sections::BestSellerProducts, best_sellers %>
-  <%= cell LandingPage::Cell::Sections::NewArrivals %>
-  <%= cell LandingPage::Cell::Sections::OurCustomers %>
+  <%= cell(LandingPage::Cell::Sections::Offers, offers) if offers %>
+  <%= cell(LandingPage::Cell::Sections::UpcomingOffers, upcoming_offers) if upcoming_offers %>
+  <%= cell(LandingPage::Cell::Sections::FeatureProducts, featured_products) if featured_products %>
+  <%= cell(LandingPage::Cell::Sections::BestSellerProducts, best_sellers) if best_sellers %>
+  <%= cell(LandingPage::Cell::Sections::NewArrivals, new_arrivals) if new_arrivals %>
+  <%= cell(LandingPage::Cell::Sections::OurCustomers) if our_customers %>
 </div>
