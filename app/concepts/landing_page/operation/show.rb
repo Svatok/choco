@@ -1,11 +1,11 @@
 class LandingPage::Show < Trailblazer::Operation
   step :model!
-  step :banners!
-  step :offers!
-  step :upcoming_offers!
-  step :featured_products!
-  step :best_sellers!
-  step :new_arrivals!
+  success :banners!
+  success :offers!
+  success :upcoming_offers!
+  success :featured_products!
+  success :best_sellers!
+  success :new_arrivals!
 
   def model!(options, **)
     options['model'] = OpenStruct.new
@@ -16,7 +16,7 @@ class LandingPage::Show < Trailblazer::Operation
   end
 
   def offers!(model:, **)
-    model.offer = Section.find_by(section_type: :offers, status: :current)
+    model.offers = Section.find_by(section_type: :offers, status: :current)
   end
 
   def upcoming_offers!(model:, **)
@@ -32,6 +32,6 @@ class LandingPage::Show < Trailblazer::Operation
   end
 
   def new_arrivals!(model:, **)
-    model.best_sellers = Section.find_by(section_type: :new_arrivals, status: :current)
+    model.new_arrivals = Section.find_by(section_type: :new_arrivals, status: :current)
   end
 end

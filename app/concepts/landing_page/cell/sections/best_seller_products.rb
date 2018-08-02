@@ -3,7 +3,7 @@ module LandingPage::Cell::Sections
     property :title
 
     def products
-      model.products.order(:position)
+      model.best_sellers.order(:position)
     end
   end
 end

@@ -25,24 +25,6 @@ ActiveRecord::Schema.define(version: 2018_05_20_211409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "best_sellers", force: :cascade do |t|
-    t.bigint "section_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_best_sellers_on_product_id"
-    t.index ["section_id"], name: "index_best_sellers_on_section_id"
-  end
-
-  create_table "featured_products", force: :cascade do |t|
-    t.bigint "section_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_featured_products_on_product_id"
-    t.index ["section_id"], name: "index_featured_products_on_section_id"
-  end
-
   create_table "header_links", force: :cascade do |t|
     t.string "title"
     t.string "url"
@@ -89,6 +71,14 @@ ActiveRecord::Schema.define(version: 2018_05_20_211409) do
     t.index ["ancestry"], name: "index_product_categories_on_ancestry"
   end
 
+  create_table "product_promotions", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "promotion_type", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_promotions_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "short_description"
@@ -105,6 +95,15 @@ ActiveRecord::Schema.define(version: 2018_05_20_211409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
+  end
+
+  create_table "section_product_promotions", force: :cascade do |t|
+    t.bigint "section_id"
+    t.bigint "product_promotion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_promotion_id"], name: "index_section_product_promotions_on_product_promotion_id"
+    t.index ["section_id"], name: "index_section_product_promotions_on_section_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -152,13 +151,12 @@ ActiveRecord::Schema.define(version: 2018_05_20_211409) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "best_sellers", "products"
-  add_foreign_key "best_sellers", "sections"
-  add_foreign_key "featured_products", "products"
-  add_foreign_key "featured_products", "sections"
   add_foreign_key "new_arrivals", "sections"
   add_foreign_key "offers", "sections"
+  add_foreign_key "product_promotions", "products"
   add_foreign_key "products", "product_categories"
+  add_foreign_key "section_product_promotions", "product_promotions"
+  add_foreign_key "section_product_promotions", "sections"
   add_foreign_key "special_offers", "sections"
   add_foreign_key "upcoming_offers", "sections"
 end

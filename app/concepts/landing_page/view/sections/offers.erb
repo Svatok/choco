@@ -16,12 +16,12 @@
       <% end %>
     </div>
     <div class="special-offer">
-      <%= image_tag special_offer.image.url, class: 'img-responsive'%>
+      <%= image_tag special_offer_image_url, class: 'img-responsive'%>
       <div class="offer-detail">
         <div class="row">
           <div class="col-md-4">
-            <h2><%= special_offer.title %></h2>
-            <p><%= special_offer.short_description %></p>
+            <h2><%= special_offer&.title %></h2>
+            <p><%= special_offer&.short_description %></p>
             <%= buy_now_link %>
           </div>
         </div>
