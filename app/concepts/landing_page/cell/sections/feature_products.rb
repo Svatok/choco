@@ -3,7 +3,7 @@ module LandingPage::Cell::Sections
     property :title
 
     def products
-      model.featured_products.order(:position)
+      model.featured_products_promotions.where(current: true).order(:position).map(&:product)
     end
   end
 end

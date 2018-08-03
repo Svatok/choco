@@ -8,7 +8,8 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
       :title, :status, :section_type,
       admin_offers_attributes: %i[id title image url],
       admin_special_offer_attributes: %i[id title short_description image url],
-      admin_upcoming_offer_attributes: %i[id title short_title description image url]
+      admin_upcoming_offer_attributes: %i[id title short_title description image url],
+      admin_section_product_promotions_attributes: %i[id product_promotion_id]
     ]
   end
 
@@ -78,6 +79,26 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
         end
       end
     end
+
+    if section.section_product_promotions.present?
+      panel link_to 'PRODUCTS', admin_section_section_product_promotions_path(section_id: section.id) do
+        table_for section.section_product_promotions, sortable: true do
+          column(:product) { |section_product_promotion| section_product_promotion.product_promotion.product }
+          column(:current) { |section_product_promotion| section_product_promotion.product_promotion.current }
+          column('Actions') do |section_product_promotion|
+            span link_to 'View', admin_section_section_product_promotion_path(
+              section_id: section_product_promotion.section_id, id: section_product_promotion.id
+            )
+            span link_to 'Edit', edit_admin_section_section_product_promotion_path(
+              section_id: section_product_promotion.section_id, id: section_product_promotion.id
+            )
+            span link_to 'Delete', admin_section_section_product_promotion_path(
+              section_id: section_product_promotion.section_id, id: section_product_promotion.id
+            ), method: :delete, data: { confirm: 'Are you sure?' }
+          end
+        end
+      end
+    end
   end
 
   form(html: { multipart: true }) do |f|
@@ -103,6 +124,11 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
       uo.input :short_title
       uo.input :description
       uo.input :url
+    end
+    f.has_many :admin_section_product_promotions, new_record: true do |spp|
+      spp.input :product_promotion, as: :select, collection: ProductPromotion.all.collect { |product_promotion|
+        ["#{product_promotion.promotion_type.upcase} | #{product_promotion.product.name}", product_promotion.id]
+      }
     end
     f.actions
   end
