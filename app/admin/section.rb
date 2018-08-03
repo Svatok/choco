@@ -9,7 +9,8 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
       admin_offers_attributes: %i[id title image url],
       admin_special_offer_attributes: %i[id title short_description image url],
       admin_upcoming_offer_attributes: %i[id title short_title description image url],
-      admin_section_product_promotions_attributes: %i[id product_promotion_id]
+      admin_section_product_promotions_attributes: %i[id product_promotion_id],
+      admin_new_arrivals_attributes: %i[id image url]
     ]
   end
 
@@ -17,7 +18,7 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
 
   index do
     column :title
-    column :section_type
+    column(:section_type) { |section| section.section_type.upcase }
     column :status
     actions
   end
@@ -26,7 +27,7 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
     attributes_table do
       row :title
       row :status
-      row :section_type
+      row(:section_type) { |section| section.section_type.upcase }
     end
 
     if section.offers.present?
@@ -99,10 +100,28 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
         end
       end
     end
+
+    if section.new_arrivals.present?
+      panel link_to 'NEW ARRIVALS', admin_section_new_arrivals_path(section_id: section.id) do
+        table_for section.new_arrivals.order(:position), sortable: true do
+          column(:image) { |new_arrival| image_tag(new_arrival.image.url, height: 50) }
+          column :url
+          column('Actions') do |new_arrival|
+            span link_to 'View', admin_section_new_arrival_path(section_id: new_arrival.section_id, id: new_arrival.id)
+            span link_to 'Edit', edit_admin_section_new_arrival_path(
+              section_id: new_arrival.section_id, id: new_arrival.id
+            )
+            span link_to 'Delete', admin_section_new_arrival_path(
+              section_id: new_arrival.section_id, id: new_arrival.id
+            ), method: :delete, data: { confirm: 'Are you sure?' }
+          end
+        end
+      end
+    end
   end
 
   form(html: { multipart: true }) do |f|
-    f.inputs 'Offer' do
+    f.inputs 'Section' do
       f.input :title
       f.input :status
       f.input :section_type
@@ -129,6 +148,10 @@ ActiveAdmin.register Admin::Section, as: 'Section' do
       spp.input :product_promotion, as: :select, collection: ProductPromotion.all.collect { |product_promotion|
         ["#{product_promotion.promotion_type.upcase} | #{product_promotion.product.name}", product_promotion.id]
       }
+    end
+    f.has_many :admin_new_arrivals, new_record: true do |na|
+      na.input :image, as: :file
+      na.input :url
     end
     f.actions
   end
