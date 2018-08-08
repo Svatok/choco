@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_20_211409) do
+ActiveRecord::Schema.define(version: 2018_08_08_211206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2018_05_20_211409) do
     t.string "image"
     t.integer "position", default: 0
     t.boolean "current", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "address_line"
+    t.string "city"
+    t.string "country_name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -119,6 +128,14 @@ ActiveRecord::Schema.define(version: 2018_05_20_211409) do
   create_table "site_logos", force: :cascade do |t|
     t.string "logo"
     t.boolean "current", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "social_networks", force: :cascade do |t|
+    t.integer "name", default: 0
+    t.string "url"
+    t.integer "position", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
