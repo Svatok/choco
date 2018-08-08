@@ -5,9 +5,8 @@ module Pro::Cell
     end
 
     def logo
-      link_to(image_tag(SiteLogo.find_by(current: true)&.logo&.url, alt: 'Logo'),
-              landing_page_path,
-              class: 'navbar-brand')
+      logo_url = SiteLogo.find_by(current: true)&.logo&.url || ''
+      link_to(image_tag(logo_url, alt: 'Logo'), landing_page_path, class: 'navbar-brand')
     end
   end
 end

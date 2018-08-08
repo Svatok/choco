@@ -5,12 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-slick-rails'
-gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'uglifier', '>= 1.3.0'
 
 gem 'pg'
 gem 'puma'
@@ -19,15 +18,15 @@ gem 'rails'
 gem 'tzinfo-data'
 
 gem 'bootstrap-sass'
-gem 'sass-rails'
 gem 'font-awesome-rails'
+gem 'sass-rails'
 
-gem 'trailblazer'
-gem 'trailblazer-rails'
-gem 'trailblazer-cells'
 gem 'cells-erb'
 gem 'cells-rails'
 gem 'dry-validation'
+gem 'trailblazer'
+gem 'trailblazer-cells'
+gem 'trailblazer-rails'
 
 gem 'ancestry'
 gem 'carrierwave'
@@ -35,8 +34,9 @@ gem 'carrierwave'
 # Admin area
 gem 'activeadmin'
 gem 'activeadmin_addons'
-gem 'active_admin-sortable_tree'
 gem 'bcrypt'
+
+gem 'active_admin-sortable_tree'
 
 group :development, :test do
   gem 'awesome_print'
@@ -59,6 +59,6 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', require: false
   gem 'rails-controller-testing'
+  gem 'simplecov', require: false
 end

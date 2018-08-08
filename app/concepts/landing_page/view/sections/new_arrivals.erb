@@ -1,15 +1,14 @@
 <section class="new-arrivals section-block">
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        <a href="#"><img src="Chocalate_files/img15.jpg" alt=""></a>
+      <div class="heading">
+        <span><%= title %></span>
       </div>
-      <div class="col-sm-4">
-        <a href="#"><img src="Chocalate_files/img16.jpg" alt=""></a>
-      </div>
-      <div class="col-sm-4">
-        <a href="#"><img src="Chocalate_files/img17.jpg" alt=""></a>
-      </div>
+      <% new_arrivals.order(:position).each do |new_arrival| %>
+        <div class="col-sm-4">
+          <a href="#"><%= image_tag new_arrival.image.url%></a>
+        </div>
+      <% end %>
     </div>
   </div>
 </section>

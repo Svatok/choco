@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_12_214653) do
+ActiveRecord::Schema.define(version: 2018_05_20_211409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "banners", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "image"
+    t.integer "position", default: 0
+    t.boolean "current", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "header_links", force: :cascade do |t|
     t.string "title"
@@ -23,6 +33,27 @@ ActiveRecord::Schema.define(version: 2018_05_12_214653) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_header_links_on_ancestry"
+  end
+
+  create_table "new_arrivals", force: :cascade do |t|
+    t.string "url"
+    t.string "image"
+    t.integer "position", default: 0
+    t.bigint "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_new_arrivals_on_section_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.string "url"
+    t.integer "position", default: 0
+    t.bigint "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_offers_on_section_id"
   end
 
   create_table "phones", force: :cascade do |t|
@@ -38,6 +69,16 @@ ActiveRecord::Schema.define(version: 2018_05_12_214653) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_product_categories_on_ancestry"
+  end
+
+  create_table "product_promotions", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "promotion_type", default: 0
+    t.integer "position", default: 0
+    t.boolean "current", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_promotions_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -58,11 +99,51 @@ ActiveRecord::Schema.define(version: 2018_05_12_214653) do
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
 
+  create_table "section_product_promotions", force: :cascade do |t|
+    t.bigint "section_id"
+    t.bigint "product_promotion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_promotion_id"], name: "index_section_product_promotions_on_product_promotion_id"
+    t.index ["section_id"], name: "index_section_product_promotions_on_section_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.integer "status", default: 0
+    t.integer "section_type", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "site_logos", force: :cascade do |t|
     t.string "logo"
     t.boolean "current", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "special_offers", force: :cascade do |t|
+    t.string "title"
+    t.string "short_description"
+    t.string "url"
+    t.string "image"
+    t.bigint "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_special_offers_on_section_id"
+  end
+
+  create_table "upcoming_offers", force: :cascade do |t|
+    t.string "short_title"
+    t.string "title"
+    t.string "description"
+    t.string "url"
+    t.string "image"
+    t.bigint "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_upcoming_offers_on_section_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,5 +153,12 @@ ActiveRecord::Schema.define(version: 2018_05_12_214653) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "new_arrivals", "sections"
+  add_foreign_key "offers", "sections"
+  add_foreign_key "product_promotions", "products"
   add_foreign_key "products", "product_categories"
+  add_foreign_key "section_product_promotions", "product_promotions"
+  add_foreign_key "section_product_promotions", "sections"
+  add_foreign_key "special_offers", "sections"
+  add_foreign_key "upcoming_offers", "sections"
 end

@@ -1,11 +1,11 @@
 <section class="feature-products section-block">
   <div class="container">
     <div class="heading">
-      <span>Featured Products</span>
+      <span><%= title %></span>
     </div>
     <div class="product-list">
       <div class="row">
-        <%= cell(Lib::Cell::ProductPreview, collection: model) %>
+        <%= cell(Lib::Cell::ProductPreview, collection: products) %>
       </div>
     </div>
   </div>
