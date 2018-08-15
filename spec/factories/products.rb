@@ -8,9 +8,5 @@ FactoryBot.define do
     price { FFaker.numerify('1##.#5').to_f }
     old_price 0.00
     views_count { rand(1..50) }
-    new_product false
-    best_seller false
-    popular false
-    featured false
   end
 end

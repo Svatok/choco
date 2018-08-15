@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_211206) do
+ActiveRecord::Schema.define(version: 2018_08_14_201133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,18 @@ ActiveRecord::Schema.define(version: 2018_08_08_211206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+    t.integer "position", default: 0
     t.index ["ancestry"], name: "index_product_categories_on_ancestry"
+  end
+
+  create_table "product_images", force: :cascade do |t|
+    t.string "image"
+    t.integer "position", default: 0
+    t.boolean "current", default: true
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "product_promotions", force: :cascade do |t|
@@ -99,10 +110,6 @@ ActiveRecord::Schema.define(version: 2018_08_08_211206) do
     t.decimal "price", precision: 12, scale: 2, default: "0.0"
     t.decimal "old_price", precision: 12, scale: 2, default: "0.0"
     t.integer "views_count", default: 0
-    t.boolean "new_product", default: false
-    t.boolean "best_seller", default: false
-    t.boolean "popular", default: false
-    t.boolean "featured", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
@@ -172,6 +179,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_211206) do
 
   add_foreign_key "new_arrivals", "sections"
   add_foreign_key "offers", "sections"
+  add_foreign_key "product_images", "products"
   add_foreign_key "product_promotions", "products"
   add_foreign_key "products", "product_categories"
   add_foreign_key "section_product_promotions", "product_promotions"
