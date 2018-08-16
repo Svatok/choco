@@ -1,0 +1,36 @@
+<div id="content">
+  <%= cell(Lib::Cell::Breadcrumb) %>
+  <%= cell(Products::Cell::Elements::DiscountBanner) %>
+    <section class="list-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="sidebar">
+              <%= cell(Products::Cell::Elements::PriceSelector) %>
+              <%= cell(Products::Cell::Elements::TypeSelector) %>
+              <%= cell(Products::Cell::Elements::OccasionSelector) %>
+              <%= cell(Products::Cell::Elements::CategorySelector) %>
+            </div>
+            </div>
+            <div class="col-md-9">
+              <div class="filter-section clearfix">
+                <%= cell(Products::Cell::Elements::SortingAndView) %>
+                <%= cell(Products::Cell::Elements::TopPaginator, model, url_params: options[:url_params]) %>
+              </div>
+              <div class="product-list">
+                <div class="row">
+                  <% model.each_slice(3) do |products_row| %>
+                    <div class="row">
+                      <%= cell(Lib::Cell::ProductPreview, collection: products_row, class_name: 'col-md-4 col-sm-6') %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <%= cell(Products::Cell::Elements::BottomPaginator, model, url_params: options[:url_params]) %>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+</div>

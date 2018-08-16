@@ -23,13 +23,16 @@ gem 'sass-rails'
 
 gem 'cells-erb'
 gem 'cells-rails'
-gem 'dry-validation'
+gem 'dry-types'
+gem 'dry-validation', '0.11.1'
 gem 'trailblazer'
 gem 'trailblazer-cells'
 gem 'trailblazer-rails'
 
 gem 'ancestry'
 gem 'carrierwave'
+
+gem 'kaminari'
 
 # Admin area
 gem 'activeadmin'

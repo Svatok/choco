@@ -244,7 +244,7 @@ textarea.form-control{ height:220px;}
 
 
 /*==================== Feature Products Style Start ==================== */
- .product-box{text-align:center; position:relative; }
+ .product-box{text-align:center; position:relative; min-height: 400px}
 .product-list .product-box{ border:1px solid #cccccc; padding:15px; margin:15px 0;}
 .product-list .product-box .img{height:226px; position:relative;}
 .product-list .product-box .img img{max-width:100%;}

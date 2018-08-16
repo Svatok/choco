@@ -1,0 +1,21 @@
+<div class="top-right-filter">
+  <div class="filter-group">
+    <label>Show :</label>
+    <select id="show-items" class="selectpicker show-tick form-control bs-select-hidden">
+      <option>12</option>
+      <option>15</option>
+      <option>20</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <ul class="pagination">
+      <%= first_page_tag %>
+      <%= prev_page_tag %>
+      <% page_numbers.each do |number| %>
+        <%= page_tag(number) %>
+      <% end %>
+      <%= next_page_tag %>
+      <%= last_page_tag %>
+    </ul>
+  </div>
+</div>
