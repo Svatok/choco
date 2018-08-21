@@ -41,7 +41,7 @@ class Lib::Cell::Paginator < Trailblazer::Cell
   private
 
   def url_params(value)
-    new_params = options[:url_params]
+    new_params = options[:url_params].deep_dup
     new_params[:page][:number] = value
     new_params
   end

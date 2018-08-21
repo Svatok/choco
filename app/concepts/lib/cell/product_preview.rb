@@ -16,5 +16,23 @@ module Lib::Cell
     def price
       "#{model.price} грн"
     end
+
+    def old_price
+      "#{model.old_price} грн" if model.old_price
+    end
+
+    def discount
+      return unless model.old_price
+      percentage = ((1 - model.price / model.old_price) * 100.0).round
+      "#{percentage}%"
+    end
+
+    def new_product?
+      model.product_promotions.new_products.present?
+    end
+
+    # def new_product?
+    #   model.product_promotions.new_products.present?
+    # end
   end
 end
