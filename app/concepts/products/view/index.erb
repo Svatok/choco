@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-9">
               <div class="filter-section clearfix">
-                <%= cell(Products::Cell::Elements::SortingAndView) %>
+                <%= cell(Products::Cell::Elements::SortingAndView, model, url_params: options[:url_params]) %>
                 <%= cell(Products::Cell::Elements::TopRightFilter, model, url_params: options[:url_params]) %>
               </div>
               <div class="product-list">

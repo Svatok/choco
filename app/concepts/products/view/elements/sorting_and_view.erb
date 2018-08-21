@@ -1,10 +1,10 @@
 <div class="top-left-filter">
   <div class="filter-group">
     <label>Short by : </label>
-    <select id="short-by" class="selectpicker show-tick form-control bs-select-hidden">
-      <option>Popular</option>
-      <option>New</option>
-      <option>Mostly Viewed</option>
+    <select id="short-by" class="selectpicker show-tick form-control bs-select-hidden" onchange="document.location.href=this.value">
+      <% scope_keys.each do |key| %>
+        <%= sort_option_tag(key) %>
+      <% end %>
     </select>
   </div>
   <div class="filter-group">

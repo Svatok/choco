@@ -33,6 +33,7 @@ gem 'ancestry'
 gem 'carrierwave'
 
 gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Admin area
 gem 'activeadmin'

@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 0a82b6470e2f98a0edab20e5c494ae196c68b37a
+  specs:
+    ransack (2.0.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+
+GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: 7f070cbab458d4a1a00e9566611f5a94f7704464
   specs:
@@ -289,11 +299,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (12.3.1)
-    ransack (2.0.0)
-      actionpack (>= 5.0)
-      activerecord (>= 5.0)
-      activesupport (>= 5.0)
-      i18n
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -428,6 +433,7 @@ DEPENDENCIES
   rack-cors
   rails
   rails-controller-testing
+  ransack!
   rspec-rails
   sass-rails
   shoulda-matchers!
