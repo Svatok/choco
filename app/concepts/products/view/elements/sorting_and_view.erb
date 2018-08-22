@@ -9,8 +9,9 @@
   </div>
   <div class="filter-group">
     <ul class="list-inline view-options">
-      <li class="active"><a href="http://115.160.244.10:8084/themeforest/chocolate/search-page.html"><i class="fa fa-th-large" aria-hidden="true"></i></a></li>
-      <li><a href="http://115.160.244.10:8084/themeforest/chocolate/list-view.html"><i class="fa fa-list" aria-hidden="true"></i></a></li>
+      <% view_types.each do |view_type| %>
+        <li class="<%= view_type_class(view_type) %>"><%= view_type_link(view_type) %></li>
+      <% end %>
     </ul>
   </div>
 </div>

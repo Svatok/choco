@@ -14,18 +14,11 @@
             </div>
             <div class="col-md-9">
               <div class="filter-section clearfix">
-                <%= cell(Products::Cell::Elements::SortingAndView, model, url_params: options[:url_params]) %>
+                <%= cell(Products::Cell::Elements::SortingAndView, model,
+                         url_params: options[:url_params], view_type: options[:view_type]) %>
                 <%= cell(Products::Cell::Elements::TopRightFilter, model, url_params: options[:url_params]) %>
               </div>
-              <div class="product-list">
-                <div class="row">
-                  <% model.each_slice(3) do |products_row| %>
-                    <div class="row">
-                      <%= cell(Lib::Cell::ProductPreview, collection: products_row, class_name: 'col-md-4 col-sm-6') %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
+              <%= cell(Products::Cell::Elements::ProductList, model, view_type: options[:view_type]) %>
               <div class="bottom-pagination clearfix">
                 <%= cell(Products::Cell::Elements::Paginator, model, url_params: options[:url_params]) %>
               </div>

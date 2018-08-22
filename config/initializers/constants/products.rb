@@ -11,5 +11,7 @@ module Constants
       'min_price_first' => 'От дешевых к дорогим',
       'max_price_first' => 'От дорогих к дешевым'
     }.freeze
+
+    VIEW_TYPES = %w[grid list].freeze
   end
 end

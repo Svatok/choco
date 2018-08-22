@@ -1,0 +1,13 @@
+<div class="<%= class_name %>">
+  <div class="row">
+    <% if view_type == 'grid' %>
+      <% model.each_slice(3) do |products_row| %>
+        <div class="row">
+          <%= cell(Lib::Cell::ProductGridPreview, collection: products_row, class_name: 'col-md-4 col-sm-6') %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= cell(Products::Cell::Elements::ProductListPreview, collection: model) %>
+    <% end %>
+  </div>
+</div>
