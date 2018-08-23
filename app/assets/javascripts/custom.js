@@ -185,19 +185,19 @@ function toolTip(){
  // Show Chocolates sub Categories
 function chocoCategories(){
 if($(".choclate-categories").length){
-	$(".choclate-categories li.has-child > a").before('<span class="expand">+</span>');
-		$(".choclate-categories li a").on("click", function() {
-			if($(this).next("ul.cat-list").is(":visible"))
+	// $(".choclate-categories li.has-child > a").before('<span class="expand">+</span>');
+		$(".choclate-categories li span.expand").on("click", function() {
+			if($(this).nextAll("ul.cat-list").is(":visible"))
 			{
-				$(this).prev(".expand").text("+");
-				$(this).next("ul.cat-list").slideUp();
+				$(this).text("+");
+				$(this).nextAll("ul.cat-list").slideUp();
 			}
 			else
 			{
-				$(".choclate-categories li .expand").text("+");
-				$("ul.cat-list").slideUp();
-				$(this).prev(".expand").text("-");
-				$(this).next("ul.cat-list").slideDown();
+				// $(".choclate-categories li .expand").text("+");
+				// $("ul.cat-list").slideUp();
+				$(this).text("-");
+				$(this).nextAll("ul.choclate-categories.cat-list").slideDown();
 			}
 		});
 	}

@@ -9,7 +9,7 @@
               <%= cell(Products::Cell::Elements::PriceSelector) %>
               <%= cell(Products::Cell::Elements::TypeSelector) %>
               <%= cell(Products::Cell::Elements::OccasionSelector) %>
-              <%= cell(Products::Cell::Elements::CategorySelector) %>
+              <%= cell(Products::Cell::Elements::CategorySelector, options[:categories], url_params: options[:url_params]) %>
             </div>
             </div>
             <div class="col-md-9">

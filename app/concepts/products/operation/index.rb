@@ -10,6 +10,8 @@ class Products::Index < Trailblazer::Operation
   step :model!
   step :url_params!
 
+  step :categories!
+
   step :cell_options!
 
   def update_view_type!(options, cookies:, **)
@@ -25,7 +27,12 @@ class Products::Index < Trailblazer::Operation
   end
 
   def search_params!(options, **)
-    options['search_params'] = { selected_query: options['contract.default'].scope }
+    category = ProductCategory.find_by(id: options['contract.default'].category_id)
+
+    options['search_params'] = {
+      selected_query: options['contract.default'].scope,
+      product_category_id_in: category.descendant_ids << category.id
+    }
   end
 
   def model!(options, search_params:, page:, per:, **)
@@ -36,10 +43,15 @@ class Products::Index < Trailblazer::Operation
     options['url_params'] = options['contract.default'].to_nested_hash.except('view_type')
   end
 
-  def cell_options!(options, url_params:, view_type:, **)
+  def categories!(options, **)
+    options['categories'] = ProductCategory.all
+  end
+
+  def cell_options!(options, url_params:, view_type:, categories:, **)
     options['cell_options'] = {
       url_params: url_params,
-      view_type: view_type
+      view_type: view_type,
+      categories: categories
     }
   end
 end
