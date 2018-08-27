@@ -4,4 +4,6 @@ class Product < ApplicationRecord
   has_many :product_images, dependent: :destroy
   has_many :product_promotions, dependent: :destroy
   belongs_to :product_category
+
+  acts_as_taggable_on :occasions, :types
 end

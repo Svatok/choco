@@ -11,6 +11,8 @@ class Products::Index < Trailblazer::Operation
   step :url_params!
 
   step :categories!
+  step :occasions!
+  step :types!
 
   step :cell_options!
 
@@ -31,7 +33,9 @@ class Products::Index < Trailblazer::Operation
 
     options['search_params'] = {
       selected_query: options['contract.default'].scope,
-      product_category_id_in: category.descendant_ids << category.id
+      product_category_id_in: category ? (category.descendant_ids << category.id) : nil,
+      with_types: options['contract.default'].types,
+      with_occasions: options['contract.default'].occasions
     }
   end
 
@@ -47,11 +51,21 @@ class Products::Index < Trailblazer::Operation
     options['categories'] = ProductCategory.all
   end
 
-  def cell_options!(options, url_params:, view_type:, categories:, **)
+  def occasions!(options, **)
+    options['occasions'] = OccasionsQuery.call
+  end
+
+  def types!(options, **)
+    options['types'] = TypesQuery.call
+  end
+
+  def cell_options!(options, url_params:, view_type:, **)
     options['cell_options'] = {
       url_params: url_params,
       view_type: view_type,
-      categories: categories
+      categories: options['categories'],
+      occasions: options['occasions'],
+      types: options['types']
     }
   end
 end

@@ -7,8 +7,8 @@
           <div class="col-md-3">
             <div class="sidebar">
               <%= cell(Products::Cell::Elements::PriceSelector) %>
-              <%= cell(Products::Cell::Elements::TypeSelector) %>
-              <%= cell(Products::Cell::Elements::OccasionSelector) %>
+              <%= cell(Products::Cell::Elements::TypeSelector, options[:types], url_params: options[:url_params]) %>
+              <%= cell(Products::Cell::Elements::OccasionSelector, options[:occasions], url_params: options[:url_params]) %>
               <%= cell(Products::Cell::Elements::CategorySelector, options[:categories], url_params: options[:url_params]) %>
             </div>
             </div>

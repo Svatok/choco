@@ -129,7 +129,7 @@ $(function($) {
 	headerHeight(); //Sticky Header
 	rangeSlider(); // Price Range Selector
 	chocoCategories(); // Show Chocolates sub Categories
-    toolTip(); // Show Tooltip
+    // toolTip(); // Show Tooltip
 
 	// CheckBox/Radio Js
 	$('.label_check, .label_radio').on("click", function() {
@@ -178,9 +178,9 @@ $(window).on('scroll', function(){
 	}
 });
 
-function toolTip(){
-	$('[data-toggle="tooltip"]').tooltip();
-}
+// function toolTip(){
+// 	$('[data-toggle="tooltip"]').tooltip();
+// }
 
  // Show Chocolates sub Categories
 function chocoCategories(){

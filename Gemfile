@@ -35,6 +35,8 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
+gem 'acts-as-taggable-on'
+
 # Admin area
 gem 'activeadmin'
 gem 'activeadmin_addons'
