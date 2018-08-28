@@ -8,6 +8,9 @@ class Products::Contract::Index < Reform::Form
   property :types, virtual: true, type: Types::Form::Array
   property :occasions, virtual: true, type: Types::Form::Array
 
+  property :price_from, virtual: true, type: Types::Form::Int
+  property :price_to, virtual: true, type: Types::Form::Int
+
   property :page, virtual: true, populate_if_empty: Hash, default: {} do
     property :number, virtual: true, type: Types::Form::Int, default: 1
     property :size,   virtual: true, type: Types::Form::Int, default: 12

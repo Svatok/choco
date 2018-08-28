@@ -1,6 +1,6 @@
 <div class="top-left-filter">
   <div class="filter-group">
-    <label>Short by : </label>
+    <label>Сортировать по: </label>
     <select id="short-by" class="selectpicker show-tick form-control bs-select-hidden" onchange="document.location.href=this.value">
       <% scope_keys.each do |key| %>
         <%= sort_option_tag(key) %>

@@ -35,7 +35,9 @@ class Products::Index < Trailblazer::Operation
       selected_query: options['contract.default'].scope,
       product_category_id_in: category ? (category.descendant_ids << category.id) : nil,
       with_types: options['contract.default'].types,
-      with_occasions: options['contract.default'].occasions
+      with_occasions: options['contract.default'].occasions,
+      price_gteq:  options['contract.default'].price_from,
+      price_lteq:  options['contract.default'].price_to
     }
   end
 

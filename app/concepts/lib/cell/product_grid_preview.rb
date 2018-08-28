@@ -6,7 +6,7 @@ module Lib::Cell
 
     def image
       image_url = model.product_images.order(:position).take&.image&.url || Constants::Products::NO_IMAGE_URL
-      image_tag(image_url)
+      image_tag(image_url, height: 199)
     end
 
     def name
