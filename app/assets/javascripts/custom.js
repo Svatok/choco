@@ -5,8 +5,29 @@ $(window).on('load', function(){
 	headerHeight(); //Sticky Header
 });
 
+
 // Window Ready
 $(function($) {
+	$("#example_id").ionRangeSlider({
+		force_edges: true,
+		hide_min_max: true,
+		onFinish: function (data) {
+			var searchParams = new URLSearchParams(window.location.search);
+			searchParams.set('price_from', data.from)
+			searchParams.set('price_to', data.to)
+			var newParams = searchParams.toString()
+			var newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?' + newParams
+			window.location.href = newUrl
+		}
+	});
+
+	$(".filter-list h4").on("click", function() {
+		if($(this).nextAll(".check-list").is(":visible")) {
+			$(this).nextAll(".check-list").slideUp();
+		} else {
+			$(this).nextAll(".check-list").slideDown();
+		}
+	});
 	/*======== Banner Slider ========*/
 	// debugger;
 	if ($("#banner").length) {
@@ -129,7 +150,7 @@ $(function($) {
 	headerHeight(); //Sticky Header
 	rangeSlider(); // Price Range Selector
 	chocoCategories(); // Show Chocolates sub Categories
-    toolTip(); // Show Tooltip
+    // toolTip(); // Show Tooltip
 
 	// CheckBox/Radio Js
 	$('.label_check, .label_radio').on("click", function() {
@@ -178,26 +199,26 @@ $(window).on('scroll', function(){
 	}
 });
 
-function toolTip(){
-	$('[data-toggle="tooltip"]').tooltip();
-}
+// function toolTip(){
+// 	$('[data-toggle="tooltip"]').tooltip();
+// }
 
  // Show Chocolates sub Categories
 function chocoCategories(){
 if($(".choclate-categories").length){
-	$(".choclate-categories li.has-child > a").before('<span class="expand">+</span>');
-		$(".choclate-categories li a").on("click", function() {
-			if($(this).next("ul.cat-list").is(":visible"))
+	// $(".choclate-categories li.has-child > a").before('<span class="expand">+</span>');
+		$(".choclate-categories li span.expand").on("click", function() {
+			if($(this).nextAll("ul.cat-list").is(":visible"))
 			{
-				$(this).prev(".expand").text("+");
-				$(this).next("ul.cat-list").slideUp();
+				$(this).text("+");
+				$(this).nextAll("ul.cat-list").slideUp();
 			}
 			else
 			{
-				$(".choclate-categories li .expand").text("+");
-				$("ul.cat-list").slideUp();
-				$(this).prev(".expand").text("-");
-				$(this).next("ul.cat-list").slideDown();
+				// $(".choclate-categories li .expand").text("+");
+				// $("ul.cat-list").slideUp();
+				$(this).text("-");
+				$(this).nextAll("ul.choclate-categories.cat-list").slideDown();
 			}
 		});
 	}
@@ -215,11 +236,11 @@ function rangeSlider(){
 			tooltips: [
 				wNumb({
 					decimals: 1,
-					postfix: ' ($)'
+					postfix: ' (грн)'
 				}),
 				wNumb({
 					decimals:1,
-					postfix: ' ($)'
+					postfix: ' (грн)'
 				})
 			],
 			range: {

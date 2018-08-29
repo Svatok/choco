@@ -1,1 +1,3 @@
-Rails.application.config.reform.validations = :dry
+require 'reform'
+require 'reform/form/dry'
+require 'reform/form/coercion'

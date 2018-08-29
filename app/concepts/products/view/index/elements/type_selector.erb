@@ -1,0 +1,10 @@
+<div class="filter-list">
+  <h4>Тип шоколада</h4>
+  <div class="check-list">
+    <% model.each do |type| %>
+      <label class="label_check" for='<%= "checkbox-#{type.id}" %>'>
+        <%= type_tag(type) %>
+      </label>
+    <% end %>
+  </div>
+</div>

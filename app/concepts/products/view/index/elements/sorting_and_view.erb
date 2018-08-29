@@ -1,0 +1,17 @@
+<div class="top-left-filter">
+  <div class="filter-group">
+    <label>Сортировать по: </label>
+    <select id="short-by" class="selectpicker show-tick form-control bs-select-hidden" onchange="document.location.href=this.value">
+      <% scope_keys.each do |key| %>
+        <%= sort_option_tag(key) %>
+      <% end %>
+    </select>
+  </div>
+  <div class="filter-group">
+    <ul class="list-inline view-options">
+      <% view_types.each do |view_type| %>
+        <li class="<%= view_type_class(view_type) %>"><%= view_type_link(view_type) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

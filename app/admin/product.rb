@@ -1,7 +1,7 @@
 ActiveAdmin.register Admin::Product, as: 'Product' do
   permit_params [
     :name, :short_description, :description, :product_category_id, :availability, :price, :old_price,
-    admin_product_images_attributes: %i[id image current]
+    :occasion_list, :type_list, admin_product_images_attributes: %i[id image current]
   ]
 
   filter :product_category
@@ -10,9 +10,12 @@ ActiveAdmin.register Admin::Product, as: 'Product' do
   filter :price
   filter :old_price
   filter :views_count
+  filter :with_occasion, as: :check_boxes, collection: -> { OccasionsQuery.call.map(&:name) }
+  filter :with_type, as: :check_boxes, collection: -> { TypesQuery.call.map(&:name) }
 
   index do
     selectable_column
+    column :id
     column(:image) do |product|
       image_url = product.product_images.order(:position).take&.image&.url || Constants::Products::NO_IMAGE_URL
       image_tag(image_url, height: 60)
@@ -29,6 +32,7 @@ ActiveAdmin.register Admin::Product, as: 'Product' do
 
   show do |product|
     attributes_table do
+      row :id
       row :name
       row :short_description
       row :description
@@ -36,6 +40,8 @@ ActiveAdmin.register Admin::Product, as: 'Product' do
       row :availability
       row :price
       row :old_price
+      row(:occasions) { product.occasion_list.map(&:titleize).join(', ') }
+      row(:types) { product.type_list.map(&:titleize).join(', ') }
     end
 
     panel link_to 'IMAGES', admin_product_product_images_path(product_id: product.id) do
@@ -68,6 +74,8 @@ ActiveAdmin.register Admin::Product, as: 'Product' do
       f.input :availability
       f.input :price
       f.input :old_price
+      f.input :occasion_list, as: :tags, collection: OccasionsQuery.call.map(&:name)
+      f.input :type_list, as: :tags, collection: TypesQuery.call.map(&:name)
     end
     f.has_many :admin_product_images, new_record: true do |pi|
       pi.input :image, as: :file

@@ -1,0 +1,8 @@
+<div class="filter-list">
+  <h4>Chocolate Categories</h4>
+  <div class="check-list">
+    <%= category_tree(model.arrange) do |category| %>
+        <%= category_link_tag(category) %>
+    <% end %>
+  </div>
+</div>

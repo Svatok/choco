@@ -1,7 +1,13 @@
-<div class="col-md-3 col-sm-6">
+<div class="<%= class_name %>">
   <div class="product-box">
+    <% if new_product? %>
+      <div class="new-label"><span>NEW</span></div>
+    <% end %>
     <div class="img">
       <%= image %>
+      <% if discount %>
+        <span class="discount"><%= discount %></span>
+      <% end %>
     </div>
     <div class="product-detail">
       <div class="name">
@@ -9,6 +15,9 @@
       </div>
       <div class="price">
         <span><%= price %></span>
+        <% if old_price %>
+          <span class="old-price"><%= old_price %></span>
+        <% end %>
       </div>
     </div>
     <div class="hover-block">

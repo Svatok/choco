@@ -1,0 +1,31 @@
+<div id="content">
+  <%= cell(Lib::Cell::Breadcrumb) %>
+  <%= cell(Products::Cell::Index::Elements::DiscountBanner, options[:catalog_banner]) %>
+    <section class="list-page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="sidebar">
+              <%= cell(Products::Cell::Index::Elements::PriceSelector, options[:url_params]) %>
+              <%= cell(Products::Cell::Index::Elements::TypeSelector, options[:types], url_params: options[:url_params]) %>
+              <%= cell(Products::Cell::Index::Elements::OccasionSelector, options[:occasions], url_params: options[:url_params]) %>
+              <%= cell(Products::Cell::Index::Elements::CategorySelector, options[:categories], url_params: options[:url_params]) %>
+            </div>
+            </div>
+            <div class="col-md-9">
+              <div class="filter-section clearfix">
+                <%= cell(Products::Cell::Index::Elements::SortingAndView, model,
+                         url_params: options[:url_params], view_type: options[:view_type]) %>
+                <%= cell(Products::Cell::Index::Elements::TopRightFilter, model, url_params: options[:url_params]) %>
+              </div>
+              <%= cell(Products::Cell::Index::Elements::ProductList, model, view_type: options[:view_type]) %>
+              <div class="bottom-pagination clearfix">
+                <%= cell(Products::Cell::Index::Elements::Paginator, model, url_params: options[:url_params]) %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+</div>

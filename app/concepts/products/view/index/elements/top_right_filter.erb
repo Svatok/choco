@@ -1,0 +1,13 @@
+<div class="top-right-filter">
+  <div class="filter-group">
+    <label>Отображать:</label>
+    <select id="show-items" class="selectpicker show-tick form-control bs-select-hidden" onchange="document.location.href=this.value">
+      <% page_sizes.each do |page_size| %>
+        <%= page_size_tag(page_size) %>
+      <% end %>
+    </select>
+  </div>
+  <div class="filter-group">
+    <%= cell(Products::Cell::Index::Elements::Paginator, model, url_params: options[:url_params]) %>
+  </div>
+</div>

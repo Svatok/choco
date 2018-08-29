@@ -1,0 +1,10 @@
+<div class="filter-list">
+  <h4>Тематика</h4>
+  <div class="check-list">
+    <% model.each do |occasion| %>
+      <label class="label_check" for='<%= "checkbox-#{occasion.id}" %>'>
+        <%= occasion_tag(occasion) %>
+      </label>
+    <% end %>
+  </div>
+</div>

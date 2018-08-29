@@ -3,5 +3,9 @@ module Pro::Cell
     include ActionView::Helpers::CsrfHelper
 
     layout :layout
+
+    def body_class
+      ''
+    end
   end
 end

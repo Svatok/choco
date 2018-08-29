@@ -8,7 +8,6 @@ end
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-slick-rails'
-gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'pg'
@@ -23,13 +22,19 @@ gem 'sass-rails'
 
 gem 'cells-erb'
 gem 'cells-rails'
-gem 'dry-validation'
+gem 'dry-types'
+gem 'dry-validation', '0.11.1'
 gem 'trailblazer'
 gem 'trailblazer-cells'
 gem 'trailblazer-rails'
 
 gem 'ancestry'
 gem 'carrierwave'
+
+gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
+gem 'acts-as-taggable-on'
 
 # Admin area
 gem 'activeadmin'
