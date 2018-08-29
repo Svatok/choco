@@ -7,6 +7,7 @@ class Products::Contract::Index < Reform::Form
   property :category_id, virtual: true
   property :types, virtual: true, type: Types::Form::Array
   property :occasions, virtual: true, type: Types::Form::Array
+  property :ids, virtual: true, type: Types::Form::Array
 
   property :price_from, virtual: true, type: Types::Form::Int
   property :price_to, virtual: true, type: Types::Form::Int
@@ -15,13 +16,4 @@ class Products::Contract::Index < Reform::Form
     property :number, virtual: true, type: Types::Form::Int, default: 1
     property :size,   virtual: true, type: Types::Form::Int, default: 12
   end
-
-  # validation do
-  #   optional(:filter).maybe do
-  #     schema do
-  #       optional(:search).maybe(:str?)
-  #       optional(:scope).maybe(included_in?: Constants::Order::SCOPE_NAMES)
-  #     end
-  #   end
-  # end
 end

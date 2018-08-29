@@ -1,4 +1,4 @@
-class Products::Cell::Elements::SortingAndView < Trailblazer::Cell
+class Products::Cell::Index::Elements::SortingAndView < Trailblazer::Cell
   def scope_keys
     Constants::Products::SCOPE_NAMES.keys
   end

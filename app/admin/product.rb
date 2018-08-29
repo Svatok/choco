@@ -15,6 +15,7 @@ ActiveAdmin.register Admin::Product, as: 'Product' do
 
   index do
     selectable_column
+    column :id
     column(:image) do |product|
       image_url = product.product_images.order(:position).take&.image&.url || Constants::Products::NO_IMAGE_URL
       image_tag(image_url, height: 60)
@@ -31,6 +32,7 @@ ActiveAdmin.register Admin::Product, as: 'Product' do
 
   show do |product|
     attributes_table do
+      row :id
       row :name
       row :short_description
       row :description

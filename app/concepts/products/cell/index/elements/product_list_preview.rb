@@ -1,4 +1,4 @@
-class Products::Cell::Elements::ProductListPreview < Lib::Cell::ProductGridPreview
+class Products::Cell::Index::Elements::ProductListPreview < Lib::Cell::ProductGridPreview
   def description
     model.description.size > 150 ? model.description[0..149] + ' ...' : model.description
   end

@@ -1,4 +1,4 @@
-class Products::Cell::Elements::TopRightFilter < Trailblazer::Cell
+class Products::Cell::Index::Elements::TopRightFilter < Trailblazer::Cell
   def page_sizes
     Constants::Products::PAGE_SIZES
   end

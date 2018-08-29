@@ -1,4 +1,4 @@
-class Products::Cell::Elements::TypeSelector < Trailblazer::Cell
+class Products::Cell::Index::Elements::TypeSelector < Trailblazer::Cell
   attr_accessor :selected_types
 
   def initialize(*args)

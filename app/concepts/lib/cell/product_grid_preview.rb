@@ -30,9 +30,5 @@ module Lib::Cell
     def new_product?
       model.product_promotions.new_products.present?
     end
-
-    # def new_product?
-    #   model.product_promotions.new_products.present?
-    # end
   end
 end

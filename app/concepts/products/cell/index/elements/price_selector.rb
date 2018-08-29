@@ -1,4 +1,4 @@
-module Products::Cell::Elements
+module Products::Cell::Index::Elements
   class PriceSelector < Trailblazer::Cell
     def min_price
       Product.minimum(:price).floor

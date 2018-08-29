@@ -1,4 +1,4 @@
-module Products::Cell::Elements
+module Products::Cell::Index::Elements
   class CategorySelector < Trailblazer::Cell
     attr_accessor :ul_class, :selected_category, :selected_ancestor_ids
 

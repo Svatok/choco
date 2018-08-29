@@ -1,4 +1,4 @@
-class Products::Cell::Elements::ProductList < Trailblazer::Cell
+class Products::Cell::Index::Elements::ProductList < Trailblazer::Cell
   def view_type
     options[:view_type]
   end

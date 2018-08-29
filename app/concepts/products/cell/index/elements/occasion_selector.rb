@@ -1,4 +1,4 @@
-class Products::Cell::Elements::OccasionSelector < Trailblazer::Cell
+class Products::Cell::Index::Elements::OccasionSelector < Trailblazer::Cell
   attr_accessor :selected_occasions
 
   def initialize(*args)

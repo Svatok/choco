@@ -13,6 +13,7 @@ class Products::Index < Trailblazer::Operation
   step :categories!
   step :occasions!
   step :types!
+  step :catalog_banner!
 
   step :cell_options!
 
@@ -37,7 +38,8 @@ class Products::Index < Trailblazer::Operation
       with_types: options['contract.default'].types,
       with_occasions: options['contract.default'].occasions,
       price_gteq:  options['contract.default'].price_from,
-      price_lteq:  options['contract.default'].price_to
+      price_lteq:  options['contract.default'].price_to,
+      id_in: options['contract.default'].ids
     }
   end
 
@@ -61,13 +63,18 @@ class Products::Index < Trailblazer::Operation
     options['types'] = TypesQuery.call
   end
 
+  def catalog_banner!(options, **)
+    options['catalog_banner'] = CatalogBanner.where(current: true).take
+  end
+
   def cell_options!(options, url_params:, view_type:, **)
     options['cell_options'] = {
       url_params: url_params,
       view_type: view_type,
       categories: options['categories'],
       occasions: options['occasions'],
-      types: options['types']
+      types: options['types'],
+      catalog_banner: options['catalog_banner']
     }
   end
 end
