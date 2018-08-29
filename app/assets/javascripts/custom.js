@@ -28,6 +28,12 @@ $(function($) {
 			$(this).nextAll(".check-list").slideDown();
 		}
 	});
+
+	$(".min-img img").on("click", function() {
+		var image_url = $(this).attr("src");
+		$("#image_previewer").attr("src", image_url);
+		$("#image_previewer_link").attr("href", image_url);		
+	});
 	/*======== Banner Slider ========*/
 	// debugger;
 	if ($("#banner").length) {

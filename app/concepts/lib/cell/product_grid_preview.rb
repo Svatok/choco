@@ -30,5 +30,10 @@ module Lib::Cell
     def new_product?
       model.product_promotions.new_products.present?
     end
+
+    def product_link
+      link_to '<i class="fa fa-search" aria-hidden="true"></i>', product_path(model.id),
+              'data-toggle' => 'tooltip', 'data-placement' => 'top', title: '', 'data-original-title' => 'Просмотр'
+    end
   end
 end

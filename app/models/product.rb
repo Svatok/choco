@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  enum availability: %i[in_stock not_available expected]
+  enum availability: { for_order: 0, in_stock: 1, not_available: 2 }
 
   has_many :product_images, dependent: :destroy
   has_many :product_promotions, dependent: :destroy

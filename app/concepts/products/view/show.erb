@@ -1,0 +1,53 @@
+<div id="content">
+  <%= cell(Lib::Cell::Breadcrumb, model) %>
+  <section class="inner-content">
+  	<div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="product-detail-section">
+            <div class="product-detail">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="product-view">
+                    <% if new_product? %>
+                      <div class="new-label"><span>NEW</span></div>
+                    <% end %>
+                    <div class="product-img">
+                      <%= image %>
+                    </div>
+                    <a href="<%= title_image_url %>" id="image_previewer_link" class="example-image-link view-btn" data-lightbox="example-1">
+                    	<i class="fa fa-search" aria-hidden="true"></i>
+                  	</a>
+                  </div>
+                  <div class="row product-images">
+                    <% images.each do |product_image| %>
+                      <div class="col-sm-4 col-xs-4">
+                        <div class="product-view min-img">
+                          <%= image_tag(product_image.image.url) %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="col-sm-7">
+                  <div class="product-info">
+                    <div class="name"><%= name %></div>
+                      <p><%= short_description %></p>
+                      <p><%= description %></p>
+                    <div class="availability">Доступность: <%= availability %></div>
+                    <div class="price">
+                      <%= price %>
+                      <% if old_price %>
+                        <span class="old-price"><%= old_price %></span>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

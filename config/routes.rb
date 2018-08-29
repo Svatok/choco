@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
 
   resource :landing_page, only: :show, path: '/'
-  resources :products, only: :index
+  resources :products, only: %i[index show]
 end

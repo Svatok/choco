@@ -3,6 +3,9 @@
     <ol class="breadcrumb">
       <li><%= link_to('Главная страница', landing_page_path) %></li>
       <li class="active"><%= link_to('Каталог шоколада', products_path) %></li>
+      <% if model %>
+        <li class="active"><%= link_to(model.name, product_path(model.id)) %></li>
+      <% end %>
     </ol>
   </div>
 </div>
