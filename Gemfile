@@ -42,6 +42,7 @@ gem 'activeadmin_addons'
 gem 'bcrypt'
 
 gem 'active_admin-sortable_tree'
+gem 'activeadmin_medium_editor'
 
 group :development, :test do
   gem 'awesome_print'

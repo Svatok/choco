@@ -14,9 +14,9 @@
                         <div class="col-sm-6">
                           <h4>ИНФОРМАЦИЯ</h4>
                           <ul class="list-unstyled">
-                              <li><a href="http://115.160.244.10:8084/themeforest/chocolate/shipping-info.html">Доставка</a></li>
-                              <li><a href="#">Оплата</a></li>
-                              <li><a href="#">Возврат</a></li>
+                              <li><%= link_to 'Доставка', shipping_path %></li>
+                              <li><%= link_to 'Оплата', payment_path %></li>
+                              <li><%= link_to 'Возврат', return_path %></li>
                               <li><a href="http://115.160.244.10:8084/themeforest/chocolate/faq.html">Вопросы и ответы</a></li>
                           </ul>
                         </div>
@@ -49,10 +49,9 @@
                 </div>
                 <div class="col-md-8">
                   <ul class="list-inline">
-                        <li><a href="http://115.160.244.10:8084/themeforest/chocolate/about-us.html">Про нас</a></li>
-                        <li><a href="#">Условия пользования</a></li>
-                        <li><a href="http://115.160.244.10:8084/themeforest/chocolate/blog-left-sidebar.html">Блог</a></li>
-                        <li><a href="http://115.160.244.10:8084/themeforest/chocolate/contact-us.html">Связаться с нами</a></li>
+                        <li><%= link_to 'О нас', about_us_path %></li>
+                        <li><%= link_to 'Условия пользования', terms_path %></li>
+                        <li><%= link_to 'Контакты', contacts_path %></li>
                     </ul>
                 </div>
             </div>

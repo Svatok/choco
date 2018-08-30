@@ -32,7 +32,7 @@ $(function($) {
 	$(".min-img img").on("click", function() {
 		var image_url = $(this).attr("src");
 		$("#image_previewer").attr("src", image_url);
-		$("#image_previewer_link").attr("href", image_url);		
+		$("#image_previewer_link").attr("href", image_url);
 	});
 	/*======== Banner Slider ========*/
 	// debugger;
@@ -399,26 +399,26 @@ function setupLabel() {
 };
 
 // Placeholder for IE
-$(function () {
-	if(!$.support.placeholder) {
-
-		var active = document.activeElement;
-		$(':text, textarea').focus(function () {
-			if ($(this).attr('placeholder') != '' && $(this).val() === $(this).attr('placeholder')) {
-				$(this).val('').removeClass('hasPlaceholder');
-			}
-		}).blur(function () {
-			if ($(this).attr('placeholder') != '' && ($(this).val() === '' || $(this).val() === $(this).attr('placeholder'))) {
-				$(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
-			}
-		});
-		$(':text, textarea').blur();
-		$(active).focus();
-		$('form').submit(function () {
-			$(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
-		});
-	}
-});
+// $(function () {
+// 	if(!$.support.placeholder) {
+//
+// 		var active = document.activeElement;
+// 		$(':text, textarea').focus(function () {
+// 			if ($(this).attr('placeholder') != '' && $(this).val() === $(this).attr('placeholder')) {
+// 				$(this).val('').removeClass('hasPlaceholder');
+// 			}
+// 		}).blur(function () {
+// 			if ($(this).attr('placeholder') != '' && ($(this).val() === '' || $(this).val() === $(this).attr('placeholder'))) {
+// 				$(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+// 			}
+// 		});
+// 		$(':text, textarea').blur();
+// 		$(active).focus();
+// 		$('form').submit(function () {
+// 			$(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+// 		});
+// 	}
+// });
 
 var workFilter = $('.creations-item li');
  workFilter.on("click", function(){

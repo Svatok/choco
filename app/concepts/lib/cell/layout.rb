@@ -4,6 +4,10 @@ module Lib::Cell
 
     layout :layout
 
+    def flash
+      options.dig(:context, :flash)
+    end
+
     def body_class
       ''
     end

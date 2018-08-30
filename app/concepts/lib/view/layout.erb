@@ -11,6 +11,11 @@
   <body class="<%= body_class %>">
     <div id="wrapper" style="padding-top: 0px;">
       <%= cell Lib::Cell::Header %>
+      <% if flash %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+      <% end %>
       <%= yield %>
       <%= cell Lib::Cell::Footer %>
     </div>
