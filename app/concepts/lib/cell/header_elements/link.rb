@@ -1,4 +1,4 @@
-module Pro::Cell::HeaderElements
+module Lib::Cell::HeaderElements
   class Link < Trailblazer::Cell
     def sublinks
       model.children

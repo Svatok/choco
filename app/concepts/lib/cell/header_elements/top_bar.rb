@@ -1,4 +1,4 @@
-module Pro::Cell::HeaderElements
+module Lib::Cell::HeaderElements
   class TopBar < Trailblazer::Cell
     def phones
       Phone.all.order(:rank).first(3).map { |phone| formatted_phone(phone.number) }.join(', ')

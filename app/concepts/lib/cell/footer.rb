@@ -1,4 +1,4 @@
-module Pro::Cell
+module Lib::Cell
   class Footer < Trailblazer::Cell
     def contact
       Contact.take

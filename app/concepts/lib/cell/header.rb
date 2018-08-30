@@ -1,4 +1,4 @@
-module Pro::Cell
+module Lib::Cell
   class Header < Trailblazer::Cell
     def header_links
       HeaderLink.roots.order(:rank)

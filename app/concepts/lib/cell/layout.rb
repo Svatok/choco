@@ -1,4 +1,4 @@
-module Pro::Cell
+module Lib::Cell
   class Layout < Trailblazer::Cell
     include ActionView::Helpers::CsrfHelper
 

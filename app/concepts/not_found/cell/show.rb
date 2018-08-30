@@ -1,5 +1,5 @@
 module NotFound::Cell
-  class Show < Pro::Cell::Layout
+  class Show < Lib::Cell::Layout
     def body_class
       'inner-page'
     end

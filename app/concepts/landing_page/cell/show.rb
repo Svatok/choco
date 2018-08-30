@@ -1,5 +1,5 @@
 module LandingPage::Cell
-  class Show < Pro::Cell::Layout
+  class Show < Lib::Cell::Layout
     property :banners
     property :offers
     property :upcoming_offers

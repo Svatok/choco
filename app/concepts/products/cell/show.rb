@@ -1,5 +1,5 @@
 module Products::Cell
-  class Show < Pro::Cell::Layout
+  class Show < Lib::Cell::Layout
     property :name
     property :short_description
     property :description
