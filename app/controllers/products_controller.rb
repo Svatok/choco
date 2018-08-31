@@ -1,8 +1,4 @@
-class ProductsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound do
-    render html: concept('not_found/cell/show').call(:show)
-  end
-
+class ProductsController < BaseController
   def index
     result = run Products::Index
 
@@ -17,10 +13,6 @@ class ProductsController < ApplicationController
     run Products::Show
 
     render html: concept('products/cell/show', @model).call(:show)
-  end
-
-  def render_not_found
-    render html: concept('not_found/cell/show').call(:show), status: :not_found
   end
 
   private

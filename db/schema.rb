@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_190138) do
+ActiveRecord::Schema.define(version: 2018_08_30_233920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2018_08_29_190138) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "faqs", force: :cascade do |t|
+    t.string "question"
+    t.text "answer"
+    t.boolean "current", default: true
+    t.integer "position", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "header_links", force: :cascade do |t|
     t.string "title"
     t.string "url"
@@ -52,6 +61,15 @@ ActiveRecord::Schema.define(version: 2018_08_29_190138) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_header_links_on_ancestry"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "subject"
+    t.text "message_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "new_arrivals", force: :cascade do |t|
@@ -166,6 +184,15 @@ ActiveRecord::Schema.define(version: 2018_08_29_190138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["section_id"], name: "index_special_offers_on_section_id"
+  end
+
+  create_table "static_pages", force: :cascade do |t|
+    t.integer "page"
+    t.string "title"
+    t.text "body"
+    t.boolean "current", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

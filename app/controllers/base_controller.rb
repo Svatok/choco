@@ -1,9 +1,5 @@
 class BaseController < ApplicationController
-  def render(cell_constant, model, options: {})
-    super(html: cell(cell_constant, model,
-                     {
-                       context: { flash: flash }
-                     }.merge(options))
-          )
+  rescue_from ActiveRecord::RecordNotFound do
+    render html: concept('not_found/cell/show').call(:show)
   end
 end
