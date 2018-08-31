@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :return, only: :show
   resource :contacts, only: :show
   resource :terms, only: :show
+  resource :faq, only: :show
 
   resources :messages, only: %i[index create]
 end

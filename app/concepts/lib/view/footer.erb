@@ -17,22 +17,12 @@
                               <li><%= link_to 'Доставка', shipping_path %></li>
                               <li><%= link_to 'Оплата', payment_path %></li>
                               <li><%= link_to 'Возврат', return_path %></li>
-                              <li><a href="http://115.160.244.10:8084/themeforest/chocolate/faq.html">Вопросы и ответы</a></li>
+                              <li><%= link_to 'Вопросы и ответы', faq_path %></li>
                           </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="news-letter">
-                      <h4>Подписаться на новости</h4>
-                        <p>Укажите свой email, чтобы быть в курсе новостей от нашего магазина!</p>
-                        <form class="form-inline">
-                            <div class="form-group">
-                              <input class="form-control" placeholder="Email адрес" type="email">
-                            </div>
-                            <button type="submit" class="btn btn-default">Подписаться</button>
-                        </form>
-                    </div>
                   <h4>Социальные сети</h4>
                   <ul class="list-inline social-links">
                       <% social_networks.each do |social_network| %>

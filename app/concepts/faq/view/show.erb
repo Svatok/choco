@@ -1,0 +1,12 @@
+<div id="content">
+  <section class="inner-content">
+    <div class="container">
+    	<div class="faq-page">
+      	<div class="heading"><span>Часто задаваемые вопросы</span></div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <%= cell(Faq::Cell::FaqItem, collection: model) %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
